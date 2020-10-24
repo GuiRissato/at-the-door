@@ -20,13 +20,13 @@ void setup(){
   imageMaroakiLateralEsqDir[2] = loadImage("/images/meraki-lateral/Meraki(laterais4fps)2.png");
   imageMaroakiLateralEsqDir[3] = loadImage("/images/meraki-lateral/Meraki(laterais4fps)3.png");
   imageMaroakiCostas[0] = loadImage("/images/meraki-costas/Meraki(Costas2fps)0.png");
-  imageMaroakiCostas[0] = loadImage("/images/meraki-costas/Meraki(Costas2fps)1.png");
-  imageMaroakiCostas[0] = loadImage("/images/meraki-costas/Meraki(Costas2fps)2.png");
+  imageMaroakiCostas[1] = loadImage("/images/meraki-costas/Meraki(Costas2fps)1.png");
+  imageMaroakiCostas[2] = loadImage("/images/meraki-costas/Meraki(Costas2fps)2.png");
   
   
   //enviando a imagem do personagem de frente para o 
     //public classPersonagem(int x, int y, int v, int alt, int larg,int tempoAnimacao, PImage[] imagemMaroakiFrente,PImage[] imagemMaroakiLateral,PImage[] imagemMaroakiCostas ){
-   pm = new classPersonagem(width/2,height/2,5,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir);
+   pm = new classPersonagem(250,250,5,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir);
    cima=baixo=esq=dir=false;
 }
 
