@@ -5,6 +5,7 @@ int ani;
 int quadro; //quadro da animação corrente
 classTimer t; //Timer da animação
 PImage[] maroaki = new PImage[10];
+PImage[] mostraPersonagem = new PImage[3];
   
 public classPersonagem(int x, int y, int v,int tempoAnimacao, PImage[] frente, PImage[] costas, PImage[] lateral){
 this.x = x;
@@ -20,30 +21,63 @@ for(int i = 0 ; i <= 3;i++){
 for(int i = 0 ; i <= 2;i++){
   this.maroaki[i+7] = costas[i];
 }
+mostraPersonagem[0]=frente[0];
+
   
 }
 
 void anima(){
-  if(t.disparou())
-  if(baixo && cima){
-    quadro=(quadro+1)%3;
-  }
-  if(esq && dir){
-    quadro=(quadro+1)%2;
+  if(t.disparou()){
+  
+    if(cima){
+      quadro=(quadro+1)%3;
+      for(int i = 0; i < 3; i++){
+      mostraPersonagem[i]=maroaki[7+i];
+      }
+    }
+    if(baixo){
+      quadro=(quadro+1)%3;
+       for(int i = 0; i < 3; i++){
+      mostraPersonagem[i]=maroaki[i];
+    }
+    }
+    if(esq){
+      quadro=(quadro+1)%2;
+      for(int i = 0; i < 2; i++){
+      mostraPersonagem[i]=maroaki[3+i];
+    }
+    }
+    if(dir){
+      quadro=(quadro+1)%2;
+       for(int i = 0; i < 2; i++){
+      mostraPersonagem[i]=maroaki[5+i];
+    }
+    }
+    if((dir && baixo) || (dir && cima)){
+      quadro=(quadro+1)%2;
+       for(int i = 0; i < 2; i++){
+      mostraPersonagem[i]=maroaki[5+i];
+    }
+    }
+    
+    if((esq && baixo) || (esq && cima)){
+      quadro=(quadro+1)%2;
+      for(int i = 0; i < 2; i++){
+      mostraPersonagem[i]=maroaki[3+i];
+    }
+    }
   }
 }
 
 void desenha(){
- image(maroaki[quadro],x,y);
- 
+  // colocar os parametros para diminuir a imagem
+ image(mostraPersonagem[quadro],x,y,100,100);
 }
 
 void movimenta(){
-  
   if(dir){
     x+=v;
     ani = DIREITA;
-    
   }
   else if(esq){
     x-=v;
@@ -52,7 +86,7 @@ void movimenta(){
   
   if(cima){
     y-=v;
-    ani = CIMA;
+    ani = CIMA; 
   }
   else if(baixo){
     y+=v;
