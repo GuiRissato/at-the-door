@@ -46,6 +46,7 @@ void anima(){
       for(int i = 0; i < 2; i++){
       mostraPersonagem[i]=maroaki[3+i];
     }
+    
     }
     if(dir){
       quadro=(quadro+1)%2;
@@ -70,8 +71,16 @@ void anima(){
 }
 
 void desenha(){
-  // colocar os parametros para diminuir a imagem
- image(mostraPersonagem[quadro],x,y,100,100);
+ 
+ image(mostraPersonagem[quadro],x,y,60,60);
+   if(cenarioAtual == 0){
+    if(x == 0){
+      cenarioAtual = 1;
+    }
+  }
+  if(cenarioAtual == 1){
+    
+    }
 }
 
 void movimenta(){
@@ -92,5 +101,6 @@ void movimenta(){
     y+=v;
     ani = BAIXO;
   }
+
 }
 }

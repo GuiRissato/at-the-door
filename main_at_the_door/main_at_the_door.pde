@@ -4,7 +4,11 @@ PImage[] imageMaroakiLateralEsqDir = new PImage[4];
 PImage[] imageMaroakiCostas = new PImage[3];
 //ArrayList<PImage[]> personagem = new ArrayList<PImage[]>();
 classPersonagem pm;
+classCamadaEntradaFloresta cmEF;
+classCamadaEntradaDensa cmED;
 boolean cima,baixo,esq,dir;
+int personagemParado = 0;
+int cenarioAtual = 0;
 final int BAIXO = 0;
 final int ESQUERDA = 1;
 final int CIMA = 2;
@@ -13,12 +17,26 @@ final int DIREITA = 3;
 // Mapa
 int cameraX, cameraY;
 final int MARGEM = 32;
-classCamada camadaFundo, camadaColisao, camadaFrente;
-PImage cenario;
+//classCamada camadaFundo, camadaColisao, camadaFrente;
 
+PImage[] cenario = new PImage[12];
+
+void setCenarioEntradaFloresta(){
+   cenario[0] = loadImage("/images/entrada-da-floresta/l0_Floresta11.png");
+   cenario[1] = loadImage("/images/entrada-da-floresta/l1_Floresta11.png");
+   cmEF = new classCamadaEntradaFloresta(cenario[0],cenario[1]);
+   
+}
+
+void setCenarioEntradaDensa(){
+   cenario[0] = loadImage("/images/entrada-densa/l0_sprite_1.png");
+   cenario[1] = loadImage("/images/entrada-densa/l1_sprite_1.png");
+   cmED = new classCamadaEntradaDensa(cenario[0],cenario[1]);
+    
+}
 
 void setup(){
-  size(1500,1500);
+  size(500,500);
 //set Personagem
   imageMaroakiFrente[0] = loadImage("/images/meraki-frente/Meraki(Frente2fps)2.png");
   imageMaroakiFrente[1] = loadImage("/images/meraki-frente/Meraki(Frente2fps)1.png");
@@ -30,9 +48,11 @@ void setup(){
   imageMaroakiCostas[0] = loadImage("/images/meraki-costas/Meraki(Costas2fps)0.png");
   imageMaroakiCostas[1] = loadImage("/images/meraki-costas/Meraki(Costas2fps)1.png");
   imageMaroakiCostas[2] = loadImage("/images/meraki-costas/Meraki(Costas2fps)2.png");
-   pm = new classPersonagem(250,250,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir);
+   pm = new classPersonagem(width/2,height/2,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir);
    cima=baixo=esq=dir=false;
-   
+   setCenarioEntradaFloresta();
+   setCenarioEntradaDensa();
+  
    
 }
 
@@ -51,20 +71,35 @@ void setup(){
 
 void keyReleased(){
     switch(key){
-    case 'a': esq=false;
+    case 'a': 
+    esq=false;
+    personagemParado = 1;
     break;
-    case 's': baixo=false;
+    case 's': 
+    baixo=false;
+    personagemParado = 2;
     break;
-    case 'd': dir=false;
+    case 'd': 
+    dir=false;
+    personagemParado = 3;
     break;
-    case 'w': cima=false;
+    case 'w': 
+    cima=false;
+    personagemParado = 4;
     break;
   }
 }
 
 void draw(){
-  background(0,90,0);
-   pm.anima(); 
+  background(255, 204, 100);
+  if(cenarioAtual == 0){
+    cmEF.desenha();
+  }
+  if(cenarioAtual == 1){
+    cmED.desenha();
+  }
+  pm.anima(); 
   pm.movimenta();
   pm.desenha();
+  
 }
