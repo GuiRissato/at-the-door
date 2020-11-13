@@ -74,13 +74,42 @@ void desenha(){
  
  image(mostraPersonagem[quadro],x,y,60,60);
    if(cenarioAtual == 0){
-    if(x == 0){
-      cenarioAtual = 1;
-    }
+      if(y <= -17){
+        cenarioAtual = 1;
+      }  
   }
   if(cenarioAtual == 1){
-    
+      if(y >= 454){
+        cenarioAtual = 2;
+      }
     }
+    if(cenarioAtual == 2){
+      if(y <= -17){
+        cenarioAtual = 3;
+      }
+  }
+  if(cenarioAtual == 3){
+      if(y >= 454){
+        cenarioAtual = 4;
+      }
+    }
+    if(cenarioAtual == 4){
+      if(y <= -17){
+        cenarioAtual = 5;
+      }
+  }
+  if(cenarioAtual == 5){
+      if(y >= 454){
+        cenarioAtual = 6;
+      }
+    }
+    if(cenarioAtual == 6){
+    //  if(y <= -17){
+    //    cenarioAtual = 7;
+    //}
+    }
+   
+  
 }
 
 void movimenta(){
