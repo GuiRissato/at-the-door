@@ -6,7 +6,7 @@ class classCamadaFlorestaArvoreSensei{
   int quadro;
   
 public classCamadaFlorestaArvoreSensei(PImage fundo, PImage anima1, PImage anima2, PImage anima3, PImage anima4){
-  t = new classTimer(1000/6);
+  t = new classTimer(2000/6);
   fundoAnima = fundo;
   anima[0] = anima1;
   anima[1] = anima2;
@@ -15,7 +15,7 @@ public classCamadaFlorestaArvoreSensei(PImage fundo, PImage anima1, PImage anima
   
 }
 
-void anima(){
+void animaAS(){
   if(t.disparou()){
     quadro=(quadro+1)%4;
   }
@@ -23,7 +23,7 @@ void anima(){
 }
 
 void desenha(){
-    anima();
+    animaAS();
     image(fundoAnima,0,-16,500,550);
     image(anima[quadro],0,-16,500,550);
   

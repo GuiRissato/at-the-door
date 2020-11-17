@@ -84,7 +84,7 @@ void setCenarioFinalBoss(){
 
 
 void setPersonagem(){
-imageMaroakiFrente[0] = loadImage("/images/meraki-frente/Meraki(Frente2fps)2.png");
+  imageMaroakiFrente[0] = loadImage("/images/meraki-frente/Meraki(Frente2fps)2.png");
   imageMaroakiFrente[1] = loadImage("/images/meraki-frente/Meraki(Frente2fps)1.png");
   imageMaroakiFrente[2] = loadImage("/images/meraki-frente/Meraki(Frente2fps)0.png");
   imageMaroakiLateralEsqDir[0] = loadImage("/images/meraki-lateral/Meraki(laterais4fps)0.png");
@@ -94,7 +94,7 @@ imageMaroakiFrente[0] = loadImage("/images/meraki-frente/Meraki(Frente2fps)2.png
   imageMaroakiCostas[0] = loadImage("/images/meraki-costas/Meraki(Costas2fps)0.png");
   imageMaroakiCostas[1] = loadImage("/images/meraki-costas/Meraki(Costas2fps)1.png");
   imageMaroakiCostas[2] = loadImage("/images/meraki-costas/Meraki(Costas2fps)2.png");
-   pm = new classPersonagem(width/2,height/2,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir);
+   pm = new classPersonagem(width/2,height/2,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir,32,32);
 }
 
 void setup(){
@@ -179,5 +179,5 @@ void draw(){
   pm.anima(); 
   pm.movimenta();
   pm.desenha();
-  
+  println(mouseX + ", " + mouseY);
 }

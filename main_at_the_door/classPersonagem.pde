@@ -1,5 +1,6 @@
 class classPersonagem{
 int x,y;
+int lar, alt;
 int v;
 int ani;
 int quadro; //quadro da animação corrente
@@ -7,7 +8,7 @@ classTimer t; //Timer da animação
 PImage[] maroaki = new PImage[10];
 PImage[] mostraPersonagem = new PImage[3];
   
-public classPersonagem(int x, int y, int v,int tempoAnimacao, PImage[] frente, PImage[] costas, PImage[] lateral){
+public classPersonagem(int x, int y, int v,int tempoAnimacao, PImage[] frente, PImage[] costas, PImage[] lateral, int lar, int alt){
 this.x = x;
 this.y = y;
 this.v = v;
@@ -23,6 +24,8 @@ for(int i = 0 ; i <= 2;i++){
 }
 mostraPersonagem[0]=frente[0];
 
+this.alt= alt;
+this.lar = lar;
   
 }
 
@@ -70,9 +73,17 @@ void anima(){
   }
 }
 
+
+boolean colidiCenario(){
+  if(cenarioAtual == 0){
+    return cmEF.colidiu();
+  }
+  return false;
+}
+
 void desenha(){
  
- image(mostraPersonagem[quadro],x,y,60,60);
+ image(mostraPersonagem[quadro],x,y,70,70);
    if(cenarioAtual == 0){
       if(y <= -17){
         cenarioAtual = 1;
@@ -121,6 +132,13 @@ void movimenta(){
     x-=v;
     ani = ESQUERDA;
   }
+  if(colidiCenario()){
+    if(dir){
+       x-=v;
+    }else{
+      x+=v;
+    }
+  }
   
   if(cima){
     y-=v;
@@ -129,6 +147,14 @@ void movimenta(){
   else if(baixo){
     y+=v;
     ani = BAIXO;
+  }
+  
+  if(colidiCenario()){
+    if(cima){
+       y+=v;
+    }else{
+      y-=v;
+    }
   }
 
 }

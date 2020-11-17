@@ -6,7 +6,7 @@ class classCamadaEntradaFloresta2{
   int quadro;
 
   public classCamadaEntradaFloresta2(PImage fundo, PImage anima1, PImage anima2, PImage anima3, PImage anima4, PImage anima5, PImage anima6){
-     t = new classTimer(1000/6);
+     t = new classTimer(2000/6);
     fundoAnima = fundo;
     anima[0] = anima1;
     anima[1] = anima2;
@@ -16,7 +16,7 @@ class classCamadaEntradaFloresta2{
     anima[5] = anima6;
   }
   
-  void anima(){
+  void animaEF2(){
   if(t.disparou()){
     quadro=(quadro+1)%6;
   }
@@ -24,7 +24,7 @@ class classCamadaEntradaFloresta2{
 }
 
 void desenha(){
-    anima();
+    animaEF2();
     image(fundoAnima,0,-16,500,550);
     image(anima[quadro],0,-16,500,550);
   
