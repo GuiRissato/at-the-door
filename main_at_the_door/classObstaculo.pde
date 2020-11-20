@@ -17,8 +17,8 @@ class classObstaculo{
     int a,b,c,d;
     a=x;
     b=x+lar;
-    c=pm.x + 10;
-    d =pm.x + pm.lar -10;
+    c=pm.x;
+    d =pm.x + pm.lar;
     
     if(a<d && c<b){
       return (a<d && c<b);
@@ -30,8 +30,8 @@ class classObstaculo{
    int a,b,c,d;
     a=y;
     b=y+alt;
-    c=pm.y - 8;
-    d =pm.y + pm.alt + 8;
+    c=pm.y;
+    d =pm.y + pm.alt;
     
     if(a<d && c<b){
       return true;

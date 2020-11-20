@@ -6,8 +6,8 @@ class classCamadaEntradaFloresta{
     this.frente = frente;
     this.fundo = fundo;
     obstaculos = new ArrayList<classObstaculo>();
-    obstaculos.add(new classObstaculo(0,0,166,352));
-    obstaculos.add(new classObstaculo(330,0,170,352));
+    obstaculos.add(new classObstaculo(0,0,164,355));
+    obstaculos.add(new classObstaculo(320,0,170,355));
     
   }
   
@@ -21,7 +21,7 @@ class classCamadaEntradaFloresta{
   }
   
 void desenha(){
-  image(fundo,-50,0,600,680);
-  image(frente,-50,0,600,680);
+  image(fundo,-50,0,400,400);
+  image(frente,-50,0,400,400);
 }
 }

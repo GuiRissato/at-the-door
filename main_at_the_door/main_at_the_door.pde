@@ -94,11 +94,11 @@ void setPersonagem(){
   imageMaroakiCostas[0] = loadImage("/images/meraki-costas/Meraki(Costas2fps)0.png");
   imageMaroakiCostas[1] = loadImage("/images/meraki-costas/Meraki(Costas2fps)1.png");
   imageMaroakiCostas[2] = loadImage("/images/meraki-costas/Meraki(Costas2fps)2.png");
-   pm = new classPersonagem(width/2,height/2,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir,32,32);
+   pm = new classPersonagem(width/2,height/2,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir,16,16);
 }
 
 void setup(){
-  size(500,500);
+  size(300,300);
   
    cima=baixo=esq=dir=false;
    

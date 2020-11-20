@@ -6,7 +6,7 @@ class classCamadaEntradaFloresta2{
   int quadro;
 
   public classCamadaEntradaFloresta2(PImage fundo, PImage anima1, PImage anima2, PImage anima3, PImage anima4, PImage anima5, PImage anima6){
-     t = new classTimer(2000/6);
+     t = new classTimer(900/6);
     fundoAnima = fundo;
     anima[0] = anima1;
     anima[1] = anima2;
