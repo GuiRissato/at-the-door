@@ -83,7 +83,7 @@ boolean colidiCenario(){
 
 void desenha(){
  
- image(mostraPersonagem[quadro],x,y,lar,alt);
+ image(mostraPersonagem[quadro],x,y,lar*1.5,alt*1.5);
    if(cenarioAtual == 0){
       if(y <= -17){
         cenarioAtual = 1;
