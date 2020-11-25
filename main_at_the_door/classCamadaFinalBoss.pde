@@ -1,9 +1,9 @@
 class classCamadaFinalBoss {
-  
+    
    PImage fundoAnima;
-  PImage[] anima = new PImage[6];
-  classTimer t;
-  int quadro;
+   PImage[] anima = new PImage[6];
+   classTimer t;
+   int quadro;
 
   public classCamadaFinalBoss(PImage fundo, PImage anima1, PImage anima2, PImage anima3, PImage anima4, PImage anima5){
    t = new classTimer(1000/6);
@@ -13,6 +13,7 @@ class classCamadaFinalBoss {
     anima[2] = anima3;
     anima[3] = anima4;
     anima[4] = anima5;
+    
   }
     
    void anima(){

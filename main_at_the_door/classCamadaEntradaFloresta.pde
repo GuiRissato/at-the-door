@@ -6,8 +6,12 @@ class classCamadaEntradaFloresta{
     this.frente = frente;
     this.fundo = fundo;
     obstaculos = new ArrayList<classObstaculo>();
-    obstaculos.add(new classObstaculo(0,0,164,355));
-    obstaculos.add(new classObstaculo(320,0,170,355));
+    obstaculos.add(new classObstaculo(0,0,92,208));
+    obstaculos.add(new classObstaculo(203,0,150,208));
+    obstaculos.add(new classObstaculo(0,0,60,300));
+    obstaculos.add(new classObstaculo(0,0,60,300));
+    obstaculos.add(new classObstaculo(0,280,280,280));
+    obstaculos.add(new classObstaculo(237,0,280,280));
     
   }
   

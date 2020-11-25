@@ -10,6 +10,7 @@ classCamadaFlorestaDensa2 cmFD2;
 classCamadaFlorestaDensa3 cmFD3;
 classCamadaEntradaFloresta2 cmEF2;
 classCamadaFinalBoss cmFB;
+classEntradaMasmorra cmEM;
 boolean cima,baixo,esq,dir;
 int personagemParado = 0;
 int cenarioAtual = 0;
@@ -82,6 +83,16 @@ void setCenarioFinalBoss(){
   
 }
 
+void setCenarioEntradaMasmorras(){
+  cenario[0] = loadImage("/images/entrada-masmorras/l0_sprite_1.png");
+  cenario[1] = loadImage("/images/entrada-masmorras/l1_sprite_1.png");
+  cenario[2] = loadImage("/images/entrada-masmorras/l1_sprite_2.png");
+  cenario[3] = loadImage("/images/entrada-masmorras/l1_sprite_3.png");
+  cenario[4] = loadImage("/images/entrada-masmorras/l1_sprite_4.png");
+  cmEM = new classEntradaMasmorra(cenario[0],cenario[1],cenario[2],cenario[3],cenario[4]);
+  
+}
+
 
 void setPersonagem(){
   imageMaroakiFrente[0] = loadImage("/images/meraki-frente/Meraki(Frente2fps)2.png");
@@ -94,7 +105,7 @@ void setPersonagem(){
   imageMaroakiCostas[0] = loadImage("/images/meraki-costas/Meraki(Costas2fps)0.png");
   imageMaroakiCostas[1] = loadImage("/images/meraki-costas/Meraki(Costas2fps)1.png");
   imageMaroakiCostas[2] = loadImage("/images/meraki-costas/Meraki(Costas2fps)2.png");
-   pm = new classPersonagem(width/2,height/2,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir,16,16);
+   pm = new classPersonagem(145,239,3,1000/6,imageMaroakiFrente,imageMaroakiCostas,imageMaroakiLateralEsqDir,16,16);
 }
 
 void setup(){
@@ -110,6 +121,7 @@ void setup(){
    setCenarioFlorestaDensa3();
    setCenarioFlorestaEntrada2();
    setCenarioFinalBoss();
+   setCenarioEntradaMasmorras();
   
    
 }
@@ -167,17 +179,25 @@ void draw(){
     cmED.desenha(); 
   }
   if(cenarioAtual == 4){
-    cmFD2.desenha(); 
+    cmEM.desenha(); 
   }
   if(cenarioAtual == 5){
-    cmFD3.desenha();
+    cmFD2.desenha();
   }
-  if(cenarioAtual == 6){
-    cmFB.desenha();
-  }
-    
+  //if(cenarioAtual == 6){
+  //  cmFB.desenha();
+  //}
+  //cmEF.desenha();
+  //cmEF2.desenha();
+  //cmFAS.desenha();
+  //cmED.desenha();
+  //cmFD2.desenha();
+  //cmFD3.desenha();
+  //cmFB.desenha();
+  //cmEM.desenha();
   pm.anima(); 
   pm.movimenta();
   pm.desenha();
+  
   println(mouseX + ", " + mouseY);
 }

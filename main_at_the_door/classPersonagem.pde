@@ -75,10 +75,25 @@ void anima(){
 
 
 boolean colidiCenario(){
-  if(cenarioAtual == 0){
+ if(cenarioAtual == 0){
     return cmEF.colidiu();
   }
-  return false;
+    
+ if(cenarioAtual == 1){
+   return cmEF2.colidiu();
+  }
+  
+ if(cenarioAtual == 2){
+   return cmFAS.colidiu();
+}
+if(cenarioAtual == 3){
+  return cmED.colidiu();
+}
+if(cenarioAtual == 4){
+  return cmEM.colidiu();
+}
+
+return false;
 }
 
 void desenha(){
@@ -87,41 +102,52 @@ void desenha(){
    if(cenarioAtual == 0){
       if(y <= -17){
         cenarioAtual = 1;
+        x = 146;
+        y = 273;
       }  
   }
   if(cenarioAtual == 1){
-      if(y >= 454){
+      if(y <= -17){
         cenarioAtual = 2;
+        x = 137;
+        y = 266;
       }
     }
     if(cenarioAtual == 2){
-      if(y <= -17){
+      if(x<5 && y>150 && y < 230 ){
         cenarioAtual = 3;
+        x = 290;
+        y = 137;
       }
   }
   if(cenarioAtual == 3){
-      if(y >= 454){
+      if(x < 1){
         cenarioAtual = 4;
+        x= 282;
+        y= 134;
       }
     }
     if(cenarioAtual == 4){
-      if(y <= -17){
+      if(x < 1){
         cenarioAtual = 5;
+        x = 282;
+        y = 134;
       }
   }
-  if(cenarioAtual == 5){
-      if(y >= 454){
-        cenarioAtual = 6;
-      }
-    }
-    if(cenarioAtual == 6){
+  //if(cenarioAtual == 5){
+  //    if(y >= 454){
+  //      cenarioAtual = 6;
+  //    }
+  //  }
+  //  if(cenarioAtual == 6){
     //  if(y <= -17){
     //    cenarioAtual = 7;
     //}
     }
    
   
-}
+
+
 
 void movimenta(){
   if(dir){
