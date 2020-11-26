@@ -6,6 +6,11 @@ class classCamadaFlorestaDensa2 {
     this.frente = frente;
     this.fundo = fundo;
   obstaculos = new ArrayList<classObstaculo>();
+  obstaculos.add(new classObstaculo(0,0,310,50));
+  obstaculos.add(new classObstaculo(0,190,300,84));
+  obstaculos.add(new classObstaculo(12,56,65,42));
+  obstaculos.add(new classObstaculo(12,56,65,42));
+  obstaculos.add(new classObstaculo(176,60,150,42));
   }
   
    boolean colidiu(){

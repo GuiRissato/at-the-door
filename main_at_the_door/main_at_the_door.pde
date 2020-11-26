@@ -19,12 +19,17 @@ final int ESQUERDA = 1;
 final int CIMA = 2;
 final int DIREITA = 3;
 
-// Mapa
+
 int cameraX, cameraY;
 final int MARGEM = 32;
-//classCamada camadaFundo, camadaColisao, camadaFrente;
+
 
 PImage[] cenario = new PImage[7];
+PImage boss;
+
+void setBoss(){
+  boss = loadImage("/images/Urso/sprite_0.png");
+}
 
 void setCenarioEntradaFloresta(){
    cenario[0] = loadImage("/images/entrada-da-floresta/l0_Floresta11.png");
@@ -122,6 +127,7 @@ void setup(){
    setCenarioFlorestaEntrada2();
    setCenarioFinalBoss();
    setCenarioEntradaMasmorras();
+   setBoss();
   
    
 }
@@ -184,17 +190,17 @@ void draw(){
   if(cenarioAtual == 5){
     cmFD2.desenha();
   }
-  //if(cenarioAtual == 6){
-  //  cmFB.desenha();
-  //}
-  //cmEF.desenha();
-  //cmEF2.desenha();
-  //cmFAS.desenha();
-  //cmED.desenha();
-  //cmFD2.desenha();
-  //cmFD3.desenha();
-  //cmFB.desenha();
-  //cmEM.desenha();
+  if(cenarioAtual == 6){
+    cmFAS.desenha();
+  }
+  if(cenarioAtual == 7){
+    cmFD3.desenha();
+  }
+  if(cenarioAtual == 8){
+    cmFB.desenha();
+    image(boss,137,63,64,64);
+  }
+  
   pm.anima(); 
   pm.movimenta();
   pm.desenha();

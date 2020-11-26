@@ -6,6 +6,13 @@ class classCamadaFlorestaDensa3{
     this.frente = frente;
     this.fundo = fundo;
   obstaculos = new ArrayList<classObstaculo>();
+  obstaculos.add(new classObstaculo(0,0,310,95));
+  obstaculos.add(new classObstaculo(0,195,310,95));
+  obstaculos.add(new classObstaculo(211,162,30,24));
+  obstaculos.add(new classObstaculo(176,100,30,24));
+  obstaculos.add(new classObstaculo(55,100,30,24));
+  obstaculos.add(new classObstaculo(9,165,30,24));
+  
   }
   
    boolean colidiu(){
@@ -18,7 +25,7 @@ class classCamadaFlorestaDensa3{
   }
   
   void desenha(){
-  image(fundo,0,-16,500,550);
-  image(frente,0,-16,500,550);
+  image(fundo,-2,0,300,300);
+  image(frente,-2,0,300,300);
 }
 }

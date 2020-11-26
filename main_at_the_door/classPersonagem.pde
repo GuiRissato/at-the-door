@@ -83,7 +83,7 @@ boolean colidiCenario(){
    return cmEF2.colidiu();
   }
   
- if(cenarioAtual == 2){
+ if(cenarioAtual == 2 || cenarioAtual == 6){
    return cmFAS.colidiu();
 }
 if(cenarioAtual == 3){
@@ -91,6 +91,15 @@ if(cenarioAtual == 3){
 }
 if(cenarioAtual == 4){
   return cmEM.colidiu();
+}
+if(cenarioAtual == 5){
+  return cmFD2.colidiu();
+}
+if(cenarioAtual == 7){
+  return cmFD3.colidiu();
+}
+if(cenarioAtual == 8){
+  return cmFB.colidiu();
 }
 
 return false;
@@ -134,17 +143,28 @@ void desenha(){
         y = 134;
       }
   }
-  //if(cenarioAtual == 5){
-  //    if(y >= 454){
-  //      cenarioAtual = 6;
-  //    }
-  //  }
-  //  if(cenarioAtual == 6){
-    //  if(y <= -17){
-    //    cenarioAtual = 7;
-    //}
+  if(cenarioAtual == 5){
+      if(x < 1){
+        cenarioAtual = 6;
+        x = 33;
+        y = 184;
+      }
     }
-   
+    if(cenarioAtual == 6){
+      if(y < 1){
+        cenarioAtual = 7;
+        x = 282;
+        y = 134;
+    }
+    }
+    if(cenarioAtual == 7){
+      if(x<1){
+        cenarioAtual = 8;
+        x = 134;
+        y = 269;
+      }
+    }
+}
   
 
 
